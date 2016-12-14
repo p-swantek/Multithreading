@@ -1,7 +1,8 @@
 /*
  * @(#)SafePrintWriter.java 1.0 99/07/10
  *
- * Written 1999 by Elliotte Rusty Harold, Explicitly placed in the public domain No rights reserved.
+ * Written 1999 by Elliotte Rusty Harold, Explicitly placed in the public domain
+ * No rights reserved.
  */
 
 package com.macfaq.io;
@@ -39,8 +40,7 @@ public class SafePrintWriter extends Writer {
         this.lineSeparator = lineSeparator;
     }
 
-    public SafePrintWriter(OutputStream out, boolean autoFlush, String encoding, String lineSeparator)
-            throws UnsupportedEncodingException {
+    public SafePrintWriter(OutputStream out, boolean autoFlush, String encoding, String lineSeparator) throws UnsupportedEncodingException {
         this(new OutputStreamWriter(out, encoding), autoFlush, lineSeparator);
     }
 

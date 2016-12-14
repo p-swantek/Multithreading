@@ -16,7 +16,8 @@ public interface DebugStream {
     public void println(String msg);
 
     /**
-     * Prints a debugging message and sets a break point. Note that this should not be done in the main GUI thread!
+     * Prints a debugging message and sets a break point. Note that this should
+     * not be done in the main GUI thread!
      * 
      * @param msg the message to print
      */

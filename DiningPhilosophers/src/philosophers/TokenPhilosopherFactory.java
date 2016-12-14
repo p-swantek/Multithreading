@@ -11,7 +11,8 @@ import java.util.concurrent.Semaphore;
 public interface TokenPhilosopherFactory {
 
     /**
-     * Build a philosopher that uses a token to gain access to the table to start eating.
+     * Build a philosopher that uses a token to gain access to the table to
+     * start eating.
      * 
      * @param lhFork the left-hand fork
      * @param rhFork the right-hand fork

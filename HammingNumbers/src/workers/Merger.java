@@ -1,13 +1,11 @@
 package workers;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import channels.Channel;
+import src.channels.Channel;
 
 /**
- * Worker that takes the outputs from the 3 multiplier workers and merges them. The minimum number from the 3 outputs will be written to the worker in
- * charge of copying then.
+ * Worker that takes the outputs from the 3 multiplier workers and merges them.
+ * The minimum number from the 3 outputs will be written to the worker in charge
+ * of copying then.
  * 
  * @author Peter Swantek
  *
@@ -16,17 +14,7 @@ public class Merger implements Runnable {
 
     private static final int NUM_INPUTS = 3; // amount of input channals
 
-    private final List<Channel> inputChannels = new ArrayList<>(NUM_INPUTS); // list
-                                                                             // of
-                                                                             // the
-                                                                             // 3
-                                                                             // input
-                                                                             // channels
-                                                                             // from
-                                                                             // mult_2,
-                                                                             // mult_3,
-                                                                             // and
-                                                                             // mult_5
+    private final List<Channel> inputChannels = new ArrayList<>(NUM_INPUTS);
     private final Channel output; // the output channel to write the results
 
     public Merger(Channel in2, Channel in3, Channel in5, Channel out) {
@@ -38,7 +26,8 @@ public class Merger implements Runnable {
     }
 
     /**
-     * gets numbers from the input channels from mult_2, mult_3, and mult_5 workers then takes these numbers and writes the minimum number to the
+     * gets numbers from the input channels from mult_2, mult_3, and mult_5
+     * workers then takes these numbers and writes the minimum number to the
      * output channel.
      */
     @Override
@@ -62,13 +51,11 @@ public class Merger implements Runnable {
                         buffer[i] = inputChannels.get(i).read();
                     }
                     if (buffer[i] < min) {
-                        min = buffer[i]; // update the current minimum item if
-                                         // necessary
+                        min = buffer[i]; // update the current minimum item if necessary
                     }
                 }
 
-                output.write(min); // write the minimum number to the output
-                                   // channel
+                output.write(min); // write the minimum number to the output channel
 
                 // delete any other numbers currently in the buffer that are
                 // equal to the number just written to the output

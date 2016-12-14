@@ -1,11 +1,14 @@
 package philosophers;
 
 import java.util.concurrent.Semaphore;
+
 import ajeffrey.teaching.debug.Debug;
 
 /**
- * Implementation of a Philosopher that will need to obtain a token in order to access the table to get the forks and start eating. Deadlock is
- * avoided because not all Philosophers will be able to access the table at once due to the number of available tokens
+ * Implementation of a Philosopher that will need to obtain a token in order to
+ * access the table to get the forks and start eating. Deadlock is avoided
+ * because not all Philosophers will be able to access the table at once due to
+ * the number of available tokens
  * 
  * @author Peter Swantek
  *
@@ -33,9 +36,7 @@ class TokenPhilosopherImpl implements TokenPhilosopher, Runnable {
     final private Comparable rhFork;
     final private String name;
     final private Thread thread;
-    final private Semaphore token; // reference to a shared Semaphore,
-                                   // represents the token allowing access to
-                                   // the table
+    final private Semaphore token; // reference to a shared Semaphore,represents the token allowing access to the table
 
     /**
      * Constructs a TokenPhilosopher
@@ -45,8 +46,7 @@ class TokenPhilosopherImpl implements TokenPhilosopher, Runnable {
      * @param name the name of this TokenPhilosopher
      * @param token then for access to the table
      */
-    public TokenPhilosopherImpl(final Comparable lhFork, final Comparable rhFork, final String name,
-            final Semaphore token) {
+    public TokenPhilosopherImpl(final Comparable lhFork, final Comparable rhFork, final String name, final Semaphore token) {
         this.lhFork = lhFork;
         this.rhFork = rhFork;
         this.name = name;
@@ -63,8 +63,10 @@ class TokenPhilosopherImpl implements TokenPhilosopher, Runnable {
     }
 
     /**
-     * This philosopher will try to aquire a token to access the table, waiting until it does. When it gets access to the table, it will pick up the
-     * forks, eat/think, then stop. If interrupted or done eating, this philosopher will relinquish the token and leave the table
+     * This philosopher will try to aquire a token to access the table, waiting
+     * until it does. When it gets access to the table, it will pick up the
+     * forks, eat/think, then stop. If interrupted or done eating, this
+     * philosopher will relinquish the token and leave the table
      */
     @Override
     public void run() {
@@ -88,16 +90,14 @@ class TokenPhilosopherImpl implements TokenPhilosopher, Runnable {
                 delay();
                 Debug.out.println(name + " finishes eating");
                 Debug.out.println(name + " trying to release its permit");
-                token.release(); // after done, give up the token and leave the
-                                 // table
+                token.release(); // after done, give up the token and leave the table
                 Debug.out.println(name + " has released its permit");
             }
         } catch (final InterruptedException ex) {
             Debug.out.println(name + " is interrupted");
         } finally {
             Debug.out.println(name + " trying to release its permit");
-            token.release(); // give up the token if happened to be interrupted
-                             // so that you don't hold onto resources
+            token.release(); // give up the token if happened to be interrupted so that you don't hold onto resources
             Debug.out.println(name + " has released its permit");
         }
     }

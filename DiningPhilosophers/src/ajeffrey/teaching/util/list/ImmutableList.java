@@ -12,7 +12,8 @@ import ajeffrey.teaching.debug.Debug;
 public interface ImmutableList {
 
     /**
-     * Build a new list, with the current list as the tail, and the new elemet as the head
+     * Build a new list, with the current list as the tail, and the new elemet
+     * as the head
      * 
      * @param element the object to add
      */
@@ -42,10 +43,12 @@ public interface ImmutableList {
     public ImmutableList tail();
 
     /**
-     * Remove one element from the list. Removes the first element equal to the parameter.
+     * Remove one element from the list. Removes the first element equal to the
+     * parameter.
      * 
      * @param element the element to remove
-     * @exception NoSuchElementException thrown if the list does not contain the element
+     * @exception NoSuchElementException thrown if the list does not contain the
+     *                element
      * @return the list with the element removed.
      */
     public ImmutableList remove(Object element);
@@ -146,8 +149,7 @@ class ImmutableListCons implements ImmutableList {
             Debug.out.println("ImmutableListCons.remove: Returning " + tl);
             return tl;
         } else {
-            Debug.out.println(
-                    "ImmutableListCons.remove: Recursing " + tl + ".remove (" + element + ").cons (" + hd + ")");
+            Debug.out.println("ImmutableListCons.remove: Recursing " + tl + ".remove (" + element + ").cons (" + hd + ")");
             final ImmutableList result = tl.remove(element).cons(hd);
             Debug.out.println("ImmutableListCons.remove: Returning " + result);
             return result;

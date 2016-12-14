@@ -6,7 +6,8 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Provides an implementation of the MatMath interface that uses fixed size thread pools do the matrix multiplication and addition
+ * Provides an implementation of the MatMath interface that uses fixed size
+ * thread pools do the matrix multiplication and addition
  * 
  * @author Peter Swantek
  *
@@ -23,37 +24,23 @@ public class MatMathImplPools implements MatMath {
     @Override
     public void multiply(int[][] A, int[][] B, int[][] C) {
 
-        int NUM_THREADS = Runtime.getRuntime().availableProcessors(); // make as
-                                                                      // many
-                                                                      // threads
-                                                                      // depending
-                                                                      // on the
-                                                                      // amount
-                                                                      // of CPU
-                                                                      // cores
-        ExecutorService pool = Executors.newFixedThreadPool(NUM_THREADS); // create
-                                                                          // fixed
-                                                                          // thread
-                                                                          // pool
+        //make as many threads depending on the amount of CPU cores
+        int NUM_THREADS = Runtime.getRuntime().availableProcessors();
+
+        //create fixed size thread pool
+        ExecutorService pool = Executors.newFixedThreadPool(NUM_THREADS);
 
         for (int i = 0; i < C.length; i++) {
             for (int j = 0; j < C[i].length; j++) {
-                pool.submit(new MultiplicationWorker(i, j, B.length, A, B, C)); // submit
-                                                                                // the
-                                                                                // runnable
-                                                                                // task
-                                                                                // to
-                                                                                // the
-                                                                                // thread
-                                                                                // pool
+                //submits a task to the thread pool
+                pool.submit(new MultiplicationWorker(i, j, B.length, A, B, C));
             }
         }
 
         // shut down, make sure all tasks finish before publishing the result
         pool.shutdown();
         try {
-            pool.awaitTermination(2, TimeUnit.MINUTES); // wait 2 minutes to
-                                                        // shut down
+            pool.awaitTermination(2, TimeUnit.MINUTES); // wait 2 minutes to shut down
         } catch (InterruptedException e) {
             pool.shutdownNow(); // force shut down if we get interrupted
             Thread.currentThread().interrupt();
@@ -70,33 +57,19 @@ public class MatMathImplPools implements MatMath {
     @Override
     public void add(int[][] A, int[][] B, int[][] C) {
 
-        int NUM_THREADS = Runtime.getRuntime().availableProcessors(); // make as
-                                                                      // many
-                                                                      // threads
-                                                                      // depending
-                                                                      // on the
-                                                                      // amount
-                                                                      // of CPU
-                                                                      // cores
-        ExecutorService pool = Executors.newFixedThreadPool(NUM_THREADS); // create
-                                                                          // fixed
-                                                                          // thread
-                                                                          // pool
+        int NUM_THREADS = Runtime.getRuntime().availableProcessors();
+        ExecutorService pool = Executors.newFixedThreadPool(NUM_THREADS);
 
         for (int i = 0; i < A.length; i++) {
             for (int j = 0; j < A[i].length; j++) {
-                pool.submit(new AdditionWorker(i, j, A, B, C)); // submit the
-                                                                // runnable task
-                                                                // to the thread
-                                                                // pool
+                pool.submit(new AdditionWorker(i, j, A, B, C));
             }
         }
 
         // shut down, make sure all tasks finish before publishing the result
         pool.shutdown();
         try {
-            pool.awaitTermination(2, TimeUnit.MINUTES); // wait 2 minutes to
-                                                        // shut down
+            pool.awaitTermination(2, TimeUnit.MINUTES); // wait 2 minutes to shut down
         } catch (InterruptedException e) {
             pool.shutdownNow(); // force shut down if we get interrupted
             Thread.currentThread().interrupt();
@@ -139,12 +112,7 @@ public class MatMathImplPools implements MatMath {
         @Override
         public void run() {
             for (int k = 0; k < length; k++) {
-                C[rowNum][colNum] += A[rowNum][k] * B[k][colNum]; // do the
-                                                                  // multiplication
-                                                                  // and put the
-                                                                  // result in
-                                                                  // result
-                                                                  // matrix
+                C[rowNum][colNum] += A[rowNum][k] * B[k][colNum];
             }
         }
     }
@@ -170,15 +138,7 @@ public class MatMathImplPools implements MatMath {
 
         @Override
         public void run() {
-            C[rowNum][colNum] = A[rowNum][colNum] + B[rowNum][colNum]; // do the
-                                                                       // addition
-                                                                       // and
-                                                                       // put
-                                                                       // the
-                                                                       // result
-                                                                       // in
-                                                                       // result
-                                                                       // matrix
+            C[rowNum][colNum] = A[rowNum][colNum] + B[rowNum][colNum];
         }
     }
 }

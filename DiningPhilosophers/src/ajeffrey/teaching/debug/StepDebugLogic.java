@@ -4,8 +4,9 @@ import ajeffrey.teaching.observer.Subject;
 import ajeffrey.teaching.observer.Observer;
 
 /**
- * The logic behind a step debug GUI. This logic includes the Gang of Four's Observer/Observed pattern. Whenever the state of the object changes, it
- * will notify any observers which are attached to it.
+ * The logic behind a step debug GUI. This logic includes the Gang of Four's
+ * Observer/Observed pattern. Whenever the state of the object changes, it will
+ * notify any observers which are attached to it.
  * 
  * @author Alan Jeffrey
  * @version v1.0.1
@@ -13,7 +14,8 @@ import ajeffrey.teaching.observer.Observer;
 public interface StepDebugLogic extends Subject {
 
     /**
-     * If we are currently in pause mode, then block, waiting for us to enter step or run mode. Then, if we are in step mode, set the debugger back to
+     * If we are currently in pause mode, then block, waiting for us to enter
+     * step or run mode. Then, if we are in step mode, set the debugger back to
      * pause mode.
      */
     public void waitWhilePaused();

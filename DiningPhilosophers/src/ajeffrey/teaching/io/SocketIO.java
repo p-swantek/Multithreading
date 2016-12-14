@@ -25,9 +25,11 @@ import java.io.FilterOutputStream;
 import java.io.IOException;
 
 /**
- * An interface for building readers and writers from sockets. This interface mainly just saves rewriting lots of boilerplate code for manipulating
- * sockets, but it also makes it easier to close streams built from sockets, by overriding the <code>close</code> method of the stream so that it
- * closes the input stream, the output stream and the socket.
+ * An interface for building readers and writers from sockets. This interface
+ * mainly just saves rewriting lots of boilerplate code for manipulating
+ * sockets, but it also makes it easier to close streams built from sockets, by
+ * overriding the <code>close</code> method of the stream so that it closes the
+ * input stream, the output stream and the socket.
  * 
  * @author Alan Jeffrey
  * @version 1.0.2
@@ -35,7 +37,8 @@ import java.io.IOException;
 public interface SocketIO {
 
     /**
-     * Build a new input stream from a socket. When the input stream is closed, the socket is closed too.
+     * Build a new input stream from a socket. When the input stream is closed,
+     * the socket is closed too.
      * 
      * @param s a socket
      * @return a input stream which reads from the socket
@@ -43,7 +46,8 @@ public interface SocketIO {
     public InputStream buildInputStream(Socket s) throws IOException;
 
     /**
-     * Build a new output stream from a socket. When the output stream is closed, the socket is closed too.
+     * Build a new output stream from a socket. When the output stream is
+     * closed, the socket is closed too.
      * 
      * @param s a socket
      * @return a output stream which writes to the socket
@@ -51,7 +55,8 @@ public interface SocketIO {
     public OutputStream buildOutputStream(Socket s) throws IOException;
 
     /**
-     * Build a new reader from a socket. When the reader is closed, the socket is closed too.
+     * Build a new reader from a socket. When the reader is closed, the socket
+     * is closed too.
      * 
      * @param s a socket
      * @return a reader which reads from the socket
@@ -59,7 +64,8 @@ public interface SocketIO {
     public Reader buildReader(Socket s) throws IOException;
 
     /**
-     * Build a new writer from a socket. When the writer is closed, the socket is closed too.
+     * Build a new writer from a socket. When the writer is closed, the socket
+     * is closed too.
      * 
      * @param s a socket
      * @return a writer which writes to the socket
@@ -67,7 +73,8 @@ public interface SocketIO {
     public Writer buildWriter(Socket s) throws IOException;
 
     /**
-     * Build a new buffered reader from a socket. When the reader is closed, the socket is closed too.
+     * Build a new buffered reader from a socket. When the reader is closed, the
+     * socket is closed too.
      * 
      * @param s a socket
      * @return a buffered reader which reads from the socket
@@ -75,7 +82,8 @@ public interface SocketIO {
     public BufferedReader buildBufferedReader(Socket s) throws IOException;
 
     /**
-     * Build a new safe buffered reader from a socket. When the reader is closed, the socket is closed too.
+     * Build a new safe buffered reader from a socket. When the reader is
+     * closed, the socket is closed too.
      * 
      * @param s a socket
      * @return a buffered reader which reads from the socket
@@ -83,7 +91,8 @@ public interface SocketIO {
     public SafeBufferedReader buildSafeBufferedReader(Socket s) throws IOException;
 
     /**
-     * Build a new print writer from a socket. When the print writer is closed, the socket is closed too.
+     * Build a new print writer from a socket. When the print writer is closed,
+     * the socket is closed too.
      * 
      * @param s a socket
      * @return a print writer which writes to the socket
@@ -91,7 +100,8 @@ public interface SocketIO {
     public PrintWriter buildPrintWriter(Socket s) throws IOException;
 
     /**
-     * Build a new safe print writer from a socket. When the print writer is closed, the socket is closed too.
+     * Build a new safe print writer from a socket. When the print writer is
+     * closed, the socket is closed too.
      * 
      * @param s a socket
      * @param lineSep the line separator
@@ -100,7 +110,8 @@ public interface SocketIO {
     public SafePrintWriter buildSafePrintWriter(Socket s, String lineSep) throws IOException;
 
     /**
-     * Build a new buffered stream from a socket. When the stream is closed, the socket is closed too.
+     * Build a new buffered stream from a socket. When the stream is closed, the
+     * socket is closed too.
      * 
      * @param s a socket
      * @return a buffered stream which reads from the socket
@@ -108,7 +119,8 @@ public interface SocketIO {
     public BufferedInputStream buildBufferedInputStream(Socket s) throws IOException;
 
     /**
-     * Build a new print stream from a socket. When the print stream is closed, the socket is closed too.
+     * Build a new print stream from a socket. When the print stream is closed,
+     * the socket is closed too.
      * 
      * @param s a socket
      * @return a print stream which writes to the socket
@@ -131,8 +143,7 @@ public interface SocketIO {
      * @param defaultPort the default port if the URL doesn't specify one
      * @return a socket for the host and port specified by the URL
      */
-    public Socket buildSocket(String url, int defaultPort)
-            throws IOException, UnknownHostException, MalformedURLException;
+    public Socket buildSocket(String url, int defaultPort) throws IOException, UnknownHostException, MalformedURLException;
 
     /**
      * A singleton implementation of this interface.
@@ -191,8 +202,7 @@ class SocketIOImpl implements SocketIO {
         }
     }
 
-    public Socket buildSocket(final String url, final int defaultPort)
-            throws IOException, UnknownHostException, MalformedURLException {
+    public Socket buildSocket(final String url, final int defaultPort) throws IOException, UnknownHostException, MalformedURLException {
         return buildSocket(new URL(url), defaultPort);
     }
 

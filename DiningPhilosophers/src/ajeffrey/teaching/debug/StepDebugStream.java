@@ -7,7 +7,8 @@ import java.io.IOException;
 import java.util.HashMap;
 
 /**
- * A print stream which produces a step debugger user interface, with run, pause, and step options. Useful for debugging multi-threaded applications.
+ * A print stream which produces a step debugger user interface, with run,
+ * pause, and step options. Useful for debugging multi-threaded applications.
  * 
  * @author Alan Jeffrey
  * @version v1.0.1

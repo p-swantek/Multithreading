@@ -11,8 +11,9 @@ import java.io.IOException;
 import ajeffrey.teaching.debug.Debug;
 
 /**
- * An interface for constructing HTTP connections for a URL. This is a cut-down version of functionality implemented by the URL class, and is intended
- * for teaching purposes.
+ * An interface for constructing HTTP connections for a URL. This is a cut-down
+ * version of functionality implemented by the URL class, and is intended for
+ * teaching purposes.
  * 
  * @author Alan Jeffrey
  * @version 1.0.1
@@ -21,8 +22,7 @@ public interface HTTPIO {
 
     public BufferedReader get(String url) throws IOException, UnknownHostException, MalformedURLException;
 
-    public BufferedReader get(String url, int defaultPort)
-            throws IOException, UnknownHostException, MalformedURLException;
+    public BufferedReader get(String url, int defaultPort) throws IOException, UnknownHostException, MalformedURLException;
 
     public static HTTPIO singleton = new HTTPIOImpl();
 
@@ -34,8 +34,7 @@ class HTTPIOImpl implements HTTPIO {
         return get(url, 80);
     }
 
-    public BufferedReader get(final String url, final int defaultPort)
-            throws IOException, UnknownHostException, MalformedURLException {
+    public BufferedReader get(final String url, final int defaultPort) throws IOException, UnknownHostException, MalformedURLException {
         Debug.out.println("HTTPIOImpl.get: Starting");
         final Socket socket = SocketIO.singleton.buildSocket(url, defaultPort);
         final PrintWriter out = SocketIO.singleton.buildPrintWriter(socket);

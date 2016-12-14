@@ -3,8 +3,9 @@ package workers;
 import channels.Channel;
 
 /**
- * Worker that takes in a number from an input channel and then multiplies that number by either 2, 3, or 5. This resulting product is then written to
- * this workers output channel
+ * Worker that takes in a number from an input channel and then multiplies that
+ * number by either 2, 3, or 5. This resulting product is then written to this
+ * workers output channel
  * 
  * @author Peter Swantek
  *
@@ -24,8 +25,10 @@ public class Multiplier implements Runnable {
     }
 
     /**
-     * tries to read data from its input channel, waiting if necessary until data becomes available. once a number is obtained, it is multiplied by
-     * the specific multiplier. the product of this calculation is then written to the output channel
+     * tries to read data from its input channel, waiting if necessary until
+     * data becomes available. once a number is obtained, it is multiplied by
+     * the specific multiplier. the product of this calculation is then written
+     * to the output channel
      */
     @Override
     public void run() {

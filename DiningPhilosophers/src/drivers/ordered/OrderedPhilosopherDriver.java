@@ -7,7 +7,8 @@ import philosophers.Philosopher;
 import philosophers.PhilosopherFactory;
 
 /**
- * Test driver that uses philosophers that use resource ordering to avoid deadlock
+ * Test driver that uses philosophers that use resource ordering to avoid
+ * deadlock
  * 
  * @author Alan Jeffrey and Peter Swantek
  * @version 1.0.2

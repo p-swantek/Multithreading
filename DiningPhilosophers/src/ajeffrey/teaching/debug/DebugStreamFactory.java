@@ -9,7 +9,8 @@ package ajeffrey.teaching.debug;
 public interface DebugStreamFactory {
 
     /**
-     * Builds a new debugging stream. This stream should only every be used for printing debugging messages by the current thread.
+     * Builds a new debugging stream. This stream should only every be used for
+     * printing debugging messages by the current thread.
      * 
      * @param threadName a human-readable name for the current thread
      */

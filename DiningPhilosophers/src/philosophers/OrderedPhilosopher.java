@@ -3,9 +3,12 @@ package philosophers;
 import ajeffrey.teaching.debug.Debug;
 
 /**
- * A philosopher from the dining philosophers problem. A philosopher thinks, then chooses which fork to pick up based on which fork has a smaller
- * number so that the forks are picked up in order. A philosopher will always try to pick up the fork with the lower number first. This version of the
- * business logic has been edited by Peter Swantek. All of my edits are highlighted with EDITED by Peter Swantek.
+ * A philosopher from the dining philosophers problem. A philosopher thinks,
+ * then chooses which fork to pick up based on which fork has a smaller number
+ * so that the forks are picked up in order. A philosopher will always try to
+ * pick up the fork with the lower number first. This version of the business
+ * logic has been edited by Peter Swantek. All of my edits are highlighted with
+ * EDITED by Peter Swantek.
  * 
  * @author Alan Jeffrey and Peter Swantek
  * @version 1.0.2

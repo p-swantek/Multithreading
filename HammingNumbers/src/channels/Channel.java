@@ -1,7 +1,8 @@
 package channels;
 
 /**
- * Represents behaviors of channels within the data flow network for Hamming number generation
+ * Represents behaviors of channels within the data flow network for Hamming
+ * number generation
  * 
  * @author Peter Swantek
  *

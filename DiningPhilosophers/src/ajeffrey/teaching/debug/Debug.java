@@ -19,13 +19,15 @@ import ajeffrey.teaching.io.DevNull;
 public interface Debug extends DebugStream {
 
     /**
-     * A debugging output stream. This output stream will print messages including thread identifiers, to keep track of safety errors caused by
+     * A debugging output stream. This output stream will print messages
+     * including thread identifiers, to keep track of safety errors caused by
      * concurrent programming.
      */
     public static final Debug out = new DebugImpl();
 
     /**
-     * Adds a new debug factory. This factory will be used to build new debug streams when debug messages are printed. Each thread is given its own
+     * Adds a new debug factory. This factory will be used to build new debug
+     * streams when debug messages are printed. Each thread is given its own
      * debug stream to print to.
      * 
      * @param factory factory to build new debugging streams
@@ -69,7 +71,8 @@ public interface Debug extends DebugStream {
     public void println(String msg);
 
     /**
-     * Prints a debugging message, and adds a break point where execution may pause (if using a step debugger). Note: if you do this in the main GUI
+     * Prints a debugging message, and adds a break point where execution may
+     * pause (if using a step debugger). Note: if you do this in the main GUI
      * thread, you may cause all GUI processing to halt!
      * 
      * @param msg the message to print
