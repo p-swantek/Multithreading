@@ -8,3 +8,7 @@ Some multithreading work using Java
 ## MatrixMath
 - Application that uses different multithreading techniques to perform [matrix math](https://en.wikipedia.org/wiki/Matrix_(mathematics))
 - Explores techniques such as using single thread per task model, thread pools, and the Streams API from Java 8
+
+## DiningPhilosophers
+- Application that uses different multithreading techniques to solve the [dining philosophers problem](https://en.wikipedia.org/wiki/Dining_philosophers_problem)
+- Demonstrates how using either resource ordering or tokens can avoid having the philosophers deadlock
