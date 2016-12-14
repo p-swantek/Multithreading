@@ -7,8 +7,8 @@ import java.io.OutputStream;
 
 public interface PipeFactory {
 
-    public Pipe build (Reader in, Writer out);
+    public Pipe build(Reader in, Writer out);
 
-    public Pipe build (InputStream in, OutputStream out);
+    public Pipe build(InputStream in, OutputStream out);
 
 }
