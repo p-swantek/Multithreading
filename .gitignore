@@ -22,7 +22,7 @@ local.properties
 .settings/
 .loadpath
 .recommenders
-.project
+.classpath
 
 # Eclipse Core
 .project
