@@ -1,8 +1,7 @@
 package matrix;
 
 /**
- * Main driver to perform matrix operations using the threaded and streams
- * implementations of MatMath
+ * Main driver to perform matrix operations using the threaded and streams implementations of MatMath
  * 
  * @author Peter Swantek
  *
@@ -10,8 +9,7 @@ package matrix;
 public class MainClass {
 
     /*
-     * run the test of ((A+B)*C)*D using a particular implementation of the
-     * MatMath interface
+     * run the test of ((A+B)*C)*D using a particular implementation of the MatMath interface
      */
     private static void runTest(MatMath impl, int[][] A, int[][] B, int[][] C, int[][] D, int[][] r, int[][] s,
             int[][] t, String whichImpl) {

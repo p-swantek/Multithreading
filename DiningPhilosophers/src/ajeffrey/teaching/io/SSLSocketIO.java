@@ -26,11 +26,9 @@ import java.io.FilterOutputStream;
 import java.io.IOException;
 
 /**
- * An interface for building readers and writers from SSL sockets. This
- * interface mainly just saves rewriting lots of boilerplate code for
- * manipulating sockets, but it also makes it easier to close streams built from
- * sockets, by overriding the <code>close</code> method of the stream so that it
- * closes the input stream, the output stream and the socket.
+ * An interface for building readers and writers from SSL sockets. This interface mainly just saves rewriting lots of boilerplate code for
+ * manipulating sockets, but it also makes it easier to close streams built from sockets, by overriding the <code>close</code> method of the stream so
+ * that it closes the input stream, the output stream and the socket.
  * 
  * @author Alan Jeffrey
  * @version 1.0.2
@@ -38,103 +36,82 @@ import java.io.IOException;
 public interface SSLSocketIO {
 
     /**
-     * Build a new input stream from a socket. When the input stream is closed,
-     * the socket is closed too.
+     * Build a new input stream from a socket. When the input stream is closed, the socket is closed too.
      * 
-     * @param s
-     *            a socket
+     * @param s a socket
      * @return a input stream which reads from the socket
      */
     public InputStream buildInputStream(SSLSocket s) throws IOException;
 
     /**
-     * Build a new output stream from a socket. When the output stream is
-     * closed, the socket is closed too.
+     * Build a new output stream from a socket. When the output stream is closed, the socket is closed too.
      * 
-     * @param s
-     *            a socket
+     * @param s a socket
      * @return a output stream which writes to the socket
      */
     public OutputStream buildOutputStream(SSLSocket s) throws IOException;
 
     /**
-     * Build a new reader from a socket. When the reader is closed, the socket
-     * is closed too.
+     * Build a new reader from a socket. When the reader is closed, the socket is closed too.
      * 
-     * @param s
-     *            a socket
+     * @param s a socket
      * @return a reader which reads from the socket
      */
     public Reader buildReader(SSLSocket s) throws IOException;
 
     /**
-     * Build a new writer from a socket. When the writer is closed, the socket
-     * is closed too.
+     * Build a new writer from a socket. When the writer is closed, the socket is closed too.
      * 
-     * @param s
-     *            a socket
+     * @param s a socket
      * @return a writer which writes to the socket
      */
     public Writer buildWriter(SSLSocket s) throws IOException;
 
     /**
-     * Build a new buffered reader from a socket. When the reader is closed, the
-     * socket is closed too.
+     * Build a new buffered reader from a socket. When the reader is closed, the socket is closed too.
      * 
-     * @param s
-     *            a socket
+     * @param s a socket
      * @return a buffered reader which reads from the socket
      */
     public BufferedReader buildBufferedReader(SSLSocket s) throws IOException;
 
     /**
-     * Build a new safe buffered reader from a socket. When the reader is
-     * closed, the socket is closed too.
+     * Build a new safe buffered reader from a socket. When the reader is closed, the socket is closed too.
      * 
-     * @param s
-     *            a socket
+     * @param s a socket
      * @return a buffered reader which reads from the socket
      */
     public SafeBufferedReader buildSafeBufferedReader(SSLSocket s) throws IOException;
 
     /**
-     * Build a new print writer from a socket. When the print writer is closed,
-     * the socket is closed too.
+     * Build a new print writer from a socket. When the print writer is closed, the socket is closed too.
      * 
-     * @param s
-     *            a socket
+     * @param s a socket
      * @return a print writer which writes to the socket
      */
     public PrintWriter buildPrintWriter(SSLSocket s) throws IOException;
 
     /**
-     * Build a new safe print writer from a socket. When the print writer is
-     * closed, the socket is closed too.
+     * Build a new safe print writer from a socket. When the print writer is closed, the socket is closed too.
      * 
-     * @param s
-     *            a socket
-     * @param lineSep
-     *            the line separator
+     * @param s a socket
+     * @param lineSep the line separator
      * @return a safe print writer which writes to the socket
      */
     public SafePrintWriter buildSafePrintWriter(SSLSocket s, String lineSep) throws IOException;
 
     /**
-     * Build a new buffered stream from a socket. When the stream is closed, the
-     * socket is closed too.
+     * Build a new buffered stream from a socket. When the stream is closed, the socket is closed too.
      * 
-     * @param s
-     *            a socket
+     * @param s a socket
      * @return a buffered stream which reads from the socket
      */
     public BufferedInputStream buildBufferedInputStream(SSLSocket s) throws IOException;
 
     /**
-     * Build a new print stream from a socket. When the print stream is closed,
-     * the socket is closed too.
+     * Build a new print stream from a socket. When the print stream is closed, the socket is closed too.
      * 
-     * @param s
-     *            a socket
+     * @param s a socket
      * @return a print stream which writes to the socket
      */
     public PrintStream buildPrintStream(SSLSocket s) throws IOException;
@@ -142,10 +119,8 @@ public interface SSLSocketIO {
     /**
      * Build a socket from a URL.
      * 
-     * @param url
-     *            a URL
-     * @param defaultPort
-     *            the default port if the URL doesn't specify one
+     * @param url a URL
+     * @param defaultPort the default port if the URL doesn't specify one
      * @return a socket for the host and port specified by the URL
      */
     public SSLSocket buildSSLSocket(URL url, int defaultPort) throws IOException, UnknownHostException;
@@ -153,10 +128,8 @@ public interface SSLSocketIO {
     /**
      * Build a socket from a URL name.
      * 
-     * @param url
-     *            a URL name
-     * @param defaultPort
-     *            the default port if the URL doesn't specify one
+     * @param url a URL name
+     * @param defaultPort the default port if the URL doesn't specify one
      * @return a socket for the host and port specified by the URL
      */
     public SSLSocket buildSSLSocket(String url, int defaultPort)

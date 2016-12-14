@@ -11,8 +11,7 @@ public interface StepDebugGUIFactory {
     /**
      * Build a new StepDebug GUI
      * 
-     * @param logic
-     *            the logic behind the GUI
+     * @param logic the logic behind the GUI
      * @return a new step debug GUI.
      */
     public StepDebugGUI build(StepDebugLogic logic);

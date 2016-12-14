@@ -11,8 +11,7 @@ public interface StepDebugLogicFactory {
     /**
      * Build a new step debug logic.
      * 
-     * @param threadName
-     *            the name of the current thread
+     * @param threadName the name of the current thread
      * @return a new step debug logic
      */
     public StepDebugLogic build(String threadName);

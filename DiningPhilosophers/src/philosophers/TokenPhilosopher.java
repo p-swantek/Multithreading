@@ -4,10 +4,8 @@ import java.util.concurrent.Semaphore;
 import ajeffrey.teaching.debug.Debug;
 
 /**
- * Implementation of a Philosopher that will need to obtain a token in order to
- * access the table to get the forks and start eating. Deadlock is avoided
- * because not all Philosophers will be able to access the table at once due to
- * the number of available tokens
+ * Implementation of a Philosopher that will need to obtain a token in order to access the table to get the forks and start eating. Deadlock is
+ * avoided because not all Philosophers will be able to access the table at once due to the number of available tokens
  * 
  * @author Peter Swantek
  *
@@ -42,14 +40,10 @@ class TokenPhilosopherImpl implements TokenPhilosopher, Runnable {
     /**
      * Constructs a TokenPhilosopher
      * 
-     * @param lhFork
-     *            the left hand fork of this TokenPhilosopher
-     * @param rhFork
-     *            the right hand fork of this TokenPhilosopher
-     * @param name
-     *            the name of this TokenPhilosopher
-     * @param token
-     *            then for access to the table
+     * @param lhFork the left hand fork of this TokenPhilosopher
+     * @param rhFork the right hand fork of this TokenPhilosopher
+     * @param name the name of this TokenPhilosopher
+     * @param token then for access to the table
      */
     public TokenPhilosopherImpl(final Comparable lhFork, final Comparable rhFork, final String name,
             final Semaphore token) {
@@ -69,10 +63,8 @@ class TokenPhilosopherImpl implements TokenPhilosopher, Runnable {
     }
 
     /**
-     * This philosopher will try to aquire a token to access the table, waiting
-     * until it does. When it gets access to the table, it will pick up the
-     * forks, eat/think, then stop. If interrupted or done eating, this
-     * philosopher will relinquish the token and leave the table
+     * This philosopher will try to aquire a token to access the table, waiting until it does. When it gets access to the table, it will pick up the
+     * forks, eat/think, then stop. If interrupted or done eating, this philosopher will relinquish the token and leave the table
      */
     @Override
     public void run() {

@@ -1,9 +1,7 @@
 /*
  * @(#)SafePrintWriter.java 1.0 99/07/10
  *
- * Written 1999 by Elliotte Rusty Harold,
- * Explicitly placed in the public domain
- * No rights reserved.
+ * Written 1999 by Elliotte Rusty Harold, Explicitly placed in the public domain No rights reserved.
  */
 
 package com.macfaq.io;

@@ -11,9 +11,8 @@ import java.io.IOException;
 import ajeffrey.teaching.debug.Debug;
 
 /**
- * An interface for constructing HTTPS connections for a URL. This is a cut-down
- * version of functionality implemented by the URL class, and is intended for
- * teaching purposes.
+ * An interface for constructing HTTPS connections for a URL. This is a cut-down version of functionality implemented by the URL class, and is
+ * intended for teaching purposes.
  * 
  * @author Alan Jeffrey
  * @version 1.0.1

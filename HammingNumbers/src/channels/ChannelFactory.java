@@ -1,8 +1,7 @@
 package channels;
 
 /**
- * Contains factory methods for clients to use to build implementations of the
- * Channel interface
+ * Contains factory methods for clients to use to build implementations of the Channel interface
  * 
  * @author Peter Swantek
  *

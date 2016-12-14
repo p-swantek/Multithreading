@@ -8,8 +8,7 @@ import philosophers.TokenPhilosopher;
 import philosophers.TokenPhilosopherFactory;
 
 /**
- * Test driver that uses philosophers that use resource ordering to avoid
- * deadlock
+ * Test driver that uses philosophers that use resource ordering to avoid deadlock
  * 
  * @author Peter Swantek
  * @see Philosopher, TokenPhilosopher, TokenPhilosopherFactory

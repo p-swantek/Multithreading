@@ -8,11 +8,9 @@ import channels.ChannelFactory;
 import workers.WorkerFactory;
 
 /**
- * Driver for Hamming number generation. Sets up various worker threads that are
- * part of the data flow network and establishes channels between the various
- * workers. Program will then read the numbers computed by the workers and print
- * them to the screen. After the desired amount of numbers are printed, the
- * workers will all be shut down so that the program can terminate normally
+ * Driver for Hamming number generation. Sets up various worker threads that are part of the data flow network and establishes channels between the
+ * various workers. Program will then read the numbers computed by the workers and print them to the screen. After the desired amount of numbers are
+ * printed, the workers will all be shut down so that the program can terminate normally
  * 
  * @author Peter Swantek
  *
@@ -26,10 +24,8 @@ public class HammingPrinter {
     public static final int NUM_WORKERS = 5; // amount of worker threads to use
 
     /*
-     * read data from a channel or wait if none is available. once data is
-     * obtained, print it to the standard output. stop printing numbers from the
-     * channel once the amount of numbers signified by AMOUNT_TO_GENERATE has
-     * been printed
+     * read data from a channel or wait if none is available. once data is obtained, print it to the standard output. stop printing numbers from the
+     * channel once the amount of numbers signified by AMOUNT_TO_GENERATE has been printed
      */
     private static void printFromChannel(Channel c) throws InterruptedException {
         int count = 0;

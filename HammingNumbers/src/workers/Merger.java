@@ -6,9 +6,8 @@ import java.util.List;
 import channels.Channel;
 
 /**
- * Worker that takes the outputs from the 3 multiplier workers and merges them.
- * The minimum number from the 3 outputs will be written to the worker in charge
- * of copying then.
+ * Worker that takes the outputs from the 3 multiplier workers and merges them. The minimum number from the 3 outputs will be written to the worker in
+ * charge of copying then.
  * 
  * @author Peter Swantek
  *
@@ -39,8 +38,7 @@ public class Merger implements Runnable {
     }
 
     /**
-     * gets numbers from the input channels from mult_2, mult_3, and mult_5
-     * workers then takes these numbers and writes the minimum number to the
+     * gets numbers from the input channels from mult_2, mult_3, and mult_5 workers then takes these numbers and writes the minimum number to the
      * output channel.
      */
     @Override

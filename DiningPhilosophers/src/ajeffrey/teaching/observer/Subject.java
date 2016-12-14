@@ -4,11 +4,9 @@ import ajeffrey.teaching.util.list.Iterator;
 import ajeffrey.teaching.util.list.MutableList;
 
 /**
- * A Subject object from the Gang of Four's Observer/Observed pattern (also
- * known as publish/subscribe). An subject object is one which can have
- * Observers attached to it. When the Subject changes state, it should call the
- * <code>updateObservers</code> method, to notify all of the attached observers
- * that they should update themselves.
+ * A Subject object from the Gang of Four's Observer/Observed pattern (also known as publish/subscribe). An subject object is one which can have
+ * Observers attached to it. When the Subject changes state, it should call the <code>updateObservers</code> method, to notify all of the attached
+ * observers that they should update themselves.
  * 
  * @author Alan Jeffrey
  * @version 1.0.2
@@ -19,19 +17,15 @@ public interface Subject {
     /**
      * Add an observer to the list of observers observing this object.
      * 
-     * @param observer
-     *            the new Observer
+     * @param observer the new Observer
      */
     public void attach(Observer observer);
 
     /**
      * Remove an observer from the list of observers observing this object.
      * 
-     * @param observer
-     *            the Observer object to remove
-     * @exception java.util.NoSuchElementException
-     *                thrown if the observer is not currently observing this
-     *                object
+     * @param observer the Observer object to remove
+     * @exception java.util.NoSuchElementException thrown if the observer is not currently observing this object
      */
     public void detach(Observer observer);
 

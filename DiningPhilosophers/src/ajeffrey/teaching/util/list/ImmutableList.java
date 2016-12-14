@@ -12,11 +12,9 @@ import ajeffrey.teaching.debug.Debug;
 public interface ImmutableList {
 
     /**
-     * Build a new list, with the current list as the tail, and the new elemet
-     * as the head
+     * Build a new list, with the current list as the tail, and the new elemet as the head
      * 
-     * @param element
-     *            the object to add
+     * @param element the object to add
      */
     public ImmutableList cons(Object head);
 
@@ -31,8 +29,7 @@ public interface ImmutableList {
      * Get the head of the list.
      * 
      * @return the head of the list
-     * @exception NoSuchElementException
-     *                thrown if the list is empty
+     * @exception NoSuchElementException thrown if the list is empty
      */
     public Object head();
 
@@ -40,19 +37,15 @@ public interface ImmutableList {
      * Get the tail of the list.
      * 
      * @return the tail of the list
-     * @exception NoSuchElementException
-     *                thrown if the list is empty
+     * @exception NoSuchElementException thrown if the list is empty
      */
     public ImmutableList tail();
 
     /**
-     * Remove one element from the list. Removes the first element equal to the
-     * parameter.
+     * Remove one element from the list. Removes the first element equal to the parameter.
      * 
-     * @param element
-     *            the element to remove
-     * @exception NoSuchElementException
-     *                thrown if the list does not contain the element
+     * @param element the element to remove
+     * @exception NoSuchElementException thrown if the list does not contain the element
      * @return the list with the element removed.
      */
     public ImmutableList remove(Object element);

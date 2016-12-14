@@ -6,11 +6,9 @@ import java.util.List;
 import channels.Channel;
 
 /**
- * Worker that reads the output from the merging worker and then copies this
- * result to 4 output channels. The number received from the merger is sent to
- * the 3 multiplication workers as well as sent to the thread responsible for
- * printing. This worker will have its input channel seeded with an initial
- * value upon creation
+ * Worker that reads the output from the merging worker and then copies this result to 4 output channels. The number received from the merger is sent
+ * to the 3 multiplication workers as well as sent to the thread responsible for printing. This worker will have its input channel seeded with an
+ * initial value upon creation
  * 
  * @author Peter Swantek
  *
@@ -48,8 +46,7 @@ public class OutCopier implements Runnable {
     }
 
     /**
-     * tries to read data from the input channel, waiting if necessary until
-     * data becomes available. data will be the result from the merger. this
+     * tries to read data from the input channel, waiting if necessary until data becomes available. data will be the result from the merger. this
      * data will then be written to all of the output channels
      */
     @Override

@@ -4,8 +4,7 @@ import java.util.Arrays;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * Provides an implementation of the MatMath interface that uses Threads to do
- * the matrix multiplication and addition
+ * Provides an implementation of the MatMath interface that uses Threads to do the matrix multiplication and addition
  * 
  * @author Peter Swantek
  *
@@ -15,12 +14,9 @@ public class MatMathImplThreads implements MatMath {
     /**
      * Multiplies 2 matrices and stores the result in a third array
      * 
-     * @param A
-     *            the first matrix to multiply
-     * @param B
-     *            the second matrix to multiply
-     * @param C
-     *            matrix which will store the result of the multiplication
+     * @param A the first matrix to multiply
+     * @param B the second matrix to multiply
+     * @param C matrix which will store the result of the multiplication
      */
     @Override
     public void multiply(int[][] A, int[][] B, int[][] C) {
@@ -55,12 +51,9 @@ public class MatMathImplThreads implements MatMath {
     /**
      * Adds two matrices together and stores the result in a third matrix
      * 
-     * @param A
-     *            a matrix to be added
-     * @param B
-     *            a matrix to be added
-     * @param C
-     *            matrix that stores the result of adding 2 matrices together
+     * @param A a matrix to be added
+     * @param B a matrix to be added
+     * @param C matrix that stores the result of adding 2 matrices together
      */
     @Override
     public void add(int[][] A, int[][] B, int[][] C) {
@@ -97,8 +90,7 @@ public class MatMathImplThreads implements MatMath {
     /**
      * Print out a matrix
      * 
-     * @param A
-     *            the matrix to be printed
+     * @param A the matrix to be printed
      */
     @Override
     public void print(int[][] A) {

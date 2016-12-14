@@ -3,8 +3,7 @@ package ajeffrey.teaching.util.list;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
- * Implementation of a MutableList that uses an optimistic strategy to maintain
- * thread safety
+ * Implementation of a MutableList that uses an optimistic strategy to maintain thread safety
  * 
  * @author Peter Swantek
  * @see MutableListFactory
@@ -34,8 +33,7 @@ class OptimisticMutableListFactoryImpl implements MutableListFactory {
 }
 
 /*
- * Implementation of an OptimisticMutableList, uses an atomic reference to an
- * ImmutableList along with compareAndSet to ensure thread safety on list
+ * Implementation of an OptimisticMutableList, uses an atomic reference to an ImmutableList along with compareAndSet to ensure thread safety on list
  * operations without using any locking
  */
 class OptimisticMutableListImpl implements OptimisticMutableList {

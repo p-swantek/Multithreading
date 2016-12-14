@@ -8,17 +8,13 @@ import java.io.InterruptedIOException;
 /**
  * This class is a hack!
  * <p>
- * It provides an interruptable I/O stream built on top of a non-interruptable
- * stream. To do this, it has to use polling under the hood, so this class will
- * busy-wait rather than blocking. This is very annoying, but any other solution
- * runs into the problem that Sun removed the interruptable I/O features from
- * Java in version 1.3 without really telling anyone: see bug #4103109, #4154947
- * on the Java Developers' Connection at
+ * It provides an interruptable I/O stream built on top of a non-interruptable stream. To do this, it has to use polling under the hood, so this class
+ * will busy-wait rather than blocking. This is very annoying, but any other solution runs into the problem that Sun removed the interruptable I/O
+ * features from Java in version 1.3 without really telling anyone: see bug #4103109, #4154947 on the Java Developers' Connection at
  * http://developer.java.sun.com/developer/bugParade/ (registration required).
  * </p>
  * <p>
- * You can set the minimum and maximum delays (the stream uses exponential
- * backoff) either by setting the default values, or in the factory's build
+ * You can set the minimum and maximum delays (the stream uses exponential backoff) either by setting the default values, or in the factory's build
  * method.
  * </p>
  * 
@@ -30,8 +26,7 @@ public interface InterruptableIO {
     /**
      * Build a new interruptable input stream.
      * 
-     * @param in
-     *            the input stream to read from
+     * @param in the input stream to read from
      * @return a new interruptable input stream, which reads from in
      */
     public InputStream build(InputStream in);
@@ -39,24 +34,18 @@ public interface InterruptableIO {
     /**
      * Build a new interruptable input stream.
      * 
-     * @param in
-     *            the input stream to read from
-     * @param minDelay
-     *            the minimum time to wait between attempts to read in ms
-     * @param maxDelay
-     *            the maximum time to wait between attempts to read in ms
+     * @param in the input stream to read from
+     * @param minDelay the minimum time to wait between attempts to read in ms
+     * @param maxDelay the maximum time to wait between attempts to read in ms
      * @return a new interruptable input stream, which reads from in
      */
     public InputStream build(InputStream in, int minDelay, int maxDelay);
 
     /**
-     * Set the default delays. These are the delay parameters used by
-     * <code>build (InputStream)</code>.
+     * Set the default delays. These are the delay parameters used by <code>build (InputStream)</code>.
      * 
-     * @param minDelay
-     *            the minimum time to wait between attempts to read in ms
-     * @param maxDelay
-     *            the maximum time to wait between attempts to read in ms
+     * @param minDelay the minimum time to wait between attempts to read in ms
+     * @param maxDelay the maximum time to wait between attempts to read in ms
      */
     public void setDefaultDelays(int minDelay, int maxDelay);
 

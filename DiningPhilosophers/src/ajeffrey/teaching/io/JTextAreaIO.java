@@ -19,8 +19,7 @@ public interface JTextAreaIO {
     /**
      * Build an output stream for writing to the given text area.
      * 
-     * @param ta
-     *            the text area to write to
+     * @param ta the text area to write to
      * @return an output stream which writes to that text area.
      */
     public OutputStream buildOutputStream(JTextArea ta);
@@ -28,8 +27,7 @@ public interface JTextAreaIO {
     /**
      * Build a print stream for writing to the given text area.
      * 
-     * @param ta
-     *            the text area to write to
+     * @param ta the text area to write to
      * @return a print stream which writes to that text area.
      */
     public PrintStream buildPrintStream(JTextArea ta);
@@ -37,8 +35,7 @@ public interface JTextAreaIO {
     /**
      * Build a writer for writing to the given text area.
      * 
-     * @param ta
-     *            the text area to write to
+     * @param ta the text area to write to
      * @return a writer which writes to that text area.
      */
     public Writer buildWriter(JTextArea ta);
@@ -46,8 +43,7 @@ public interface JTextAreaIO {
     /**
      * Build a print writer for writing to the given text area.
      * 
-     * @param ta
-     *            the text area to write to
+     * @param ta the text area to write to
      * @return a print writer which writes to that text area.
      */
     public PrintWriter buildPrintWriter(JTextArea ta);
