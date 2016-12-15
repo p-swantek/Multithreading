@@ -12,3 +12,7 @@ Some multithreading work using Java
 ## DiningPhilosophers
 - Application that uses different multithreading techniques to solve the [dining philosophers problem](https://en.wikipedia.org/wiki/Dining_philosophers_problem)
 - Demonstrates how using either resource ordering or tokens can avoid having the philosophers deadlock
+
+## Optimistic
+- Application that creates and uses a threadsafe list that doesn't use any blocking to maintain thread safety
+- The list implementation uses an optimistic strategy to maintain thread safety, does not need to use any blocking

@@ -7,7 +7,8 @@ import java.util.concurrent.TimeUnit;
 import java.util.stream.IntStream;
 
 /**
- * Provides an implementation of the MatMath interface that uses Streams along with thread pools to perform matrix multiplication and addition
+ * Provides an implementation of the MatMath interface that uses Streams along
+ * with thread pools to perform matrix multiplication and addition
  * 
  * @author Peter Swantek
  *
@@ -24,36 +25,11 @@ public class MatMathImplPoolsStreams implements MatMath {
     @Override
     public void multiply(int[][] A, int[][] B, int[][] C) {
 
-        int NUM_THREADS = Runtime.getRuntime().availableProcessors(); // make as
-                                                                      // many
-                                                                      // threads
-                                                                      // depending
-                                                                      // on the
-                                                                      // amount
-                                                                      // of CPU
-                                                                      // cores
-        ExecutorService pool = Executors.newFixedThreadPool(NUM_THREADS); // create
-                                                                          // fixed
-                                                                          // thread
-                                                                          // pool
+        int NUM_THREADS = Runtime.getRuntime().availableProcessors();
+        ExecutorService pool = Executors.newFixedThreadPool(NUM_THREADS);
 
-        IntStream
-                .range(0,
-                        A.length)
-                .parallel().forEach(
-                        i -> IntStream.range(0, B[0].length).parallel()
-                                .forEach(
-                                        j -> IntStream.range(0, B.length).parallel()
-                                                .forEach(p -> pool.submit(() -> C[i][j] = IntStream.range(0, B.length)
-                                                        .parallel().map(k -> A[i][k] * B[k][j])
-                                                        .reduce(0, Integer::sum))))); // submit
-                                                                                      // a
-                                                                                      // runnable
-                                                                                      // for
-                                                                                      // the
-                                                                                      // pool
-                                                                                      // to
-                                                                                      // execute
+        IntStream.range(0, A.length).parallel().forEach(i -> IntStream.range(0, B[0].length).parallel().forEach(
+                j -> IntStream.range(0, B.length).parallel().forEach(p -> pool.submit(() -> C[i][j] = IntStream.range(0, B.length).parallel().map(k -> A[i][k] * B[k][j]).reduce(0, Integer::sum)))));
 
         // shut down, make sure all tasks finish before publishing the result
         pool.shutdown();
@@ -76,28 +52,10 @@ public class MatMathImplPoolsStreams implements MatMath {
     @Override
     public void add(int[][] A, int[][] B, int[][] C) {
 
-        int NUM_THREADS = Runtime.getRuntime().availableProcessors(); // make as
-                                                                      // many
-                                                                      // threads
-                                                                      // depending
-                                                                      // on the
-                                                                      // amount
-                                                                      // of CPU
-                                                                      // cores
-        ExecutorService pool = Executors.newFixedThreadPool(NUM_THREADS); // create
-                                                                          // fixed
-                                                                          // thread
-                                                                          // pool
+        int NUM_THREADS = Runtime.getRuntime().availableProcessors();
+        ExecutorService pool = Executors.newFixedThreadPool(NUM_THREADS);
 
-        IntStream.range(0, A.length).parallel().forEach(i -> IntStream.range(0, A[i].length).parallel()
-                .forEach(j -> pool.submit(() -> C[i][j] = A[i][j] + B[i][j]))); // submit
-                                                                                // a
-                                                                                // runnable
-                                                                                // to
-                                                                                // the
-                                                                                // pool
-                                                                                // to
-                                                                                // execute
+        IntStream.range(0, A.length).parallel().forEach(i -> IntStream.range(0, A[i].length).parallel().forEach(j -> pool.submit(() -> C[i][j] = A[i][j] + B[i][j])));
 
         // shut down, make sure all tasks finish before publishing the result
         pool.shutdown();

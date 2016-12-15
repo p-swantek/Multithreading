@@ -4,7 +4,8 @@ import java.util.Arrays;
 import java.util.concurrent.CountDownLatch;
 
 /**
- * Provides an implementation of the MatMath interface that uses Threads to do the matrix multiplication and addition
+ * Provides an implementation of the MatMath interface that uses Threads to do
+ * the matrix multiplication and addition
  * 
  * @author Peter Swantek
  *
@@ -28,13 +29,7 @@ public class MatMathImplThreads implements MatMath {
 
         for (int i = 0; i < C.length; i++) {
             for (int j = 0; j < C[i].length; j++) {
-                Thread t = new Thread(new MultiplicationWorker(i, j, B.length, A, B, C, start, end)); // create
-                                                                                                      // worker
-                                                                                                      // thread
-                                                                                                      // to
-                                                                                                      // do
-                                                                                                      // the
-                                                                                                      // multiplication
+                Thread t = new Thread(new MultiplicationWorker(i, j, B.length, A, B, C, start, end));
                 t.start();
             }
         }
@@ -66,14 +61,7 @@ public class MatMathImplThreads implements MatMath {
 
         for (int i = 0; i < A.length; i++) {
             for (int j = 0; j < A[i].length; j++) {
-                Thread t = new Thread(new AdditionWorker(i, j, A, B, C, start, end)); // create
-                                                                                      // a
-                                                                                      // worker
-                                                                                      // thread
-                                                                                      // to
-                                                                                      // do
-                                                                                      // the
-                                                                                      // addition
+                Thread t = new Thread(new AdditionWorker(i, j, A, B, C, start, end));
                 t.start();
             }
         }
@@ -113,8 +101,7 @@ public class MatMathImplThreads implements MatMath {
         private CountDownLatch start;
         private CountDownLatch end;
 
-        public MultiplicationWorker(int i, int j, int size, int[][] first, int[][] second, int[][] result,
-                CountDownLatch s, CountDownLatch e) {
+        public MultiplicationWorker(int i, int j, int size, int[][] first, int[][] second, int[][] result, CountDownLatch s, CountDownLatch e) {
             rowNum = i;
             colNum = j;
             length = size;
@@ -131,16 +118,7 @@ public class MatMathImplThreads implements MatMath {
                 start.await(); // wait for the signal to start
                 try {
                     for (int k = 0; k < length; k++) {
-                        C[rowNum][colNum] += A[rowNum][k] * B[k][colNum]; // do
-                                                                          // the
-                                                                          // multiplication
-                                                                          // and
-                                                                          // put
-                                                                          // the
-                                                                          // result
-                                                                          // in
-                                                                          // result
-                                                                          // matrix
+                        C[rowNum][colNum] += A[rowNum][k] * B[k][colNum];
                     }
                 } finally {
                     end.countDown(); // decrement the latch to signal that this
@@ -164,8 +142,7 @@ public class MatMathImplThreads implements MatMath {
         private CountDownLatch start;
         private CountDownLatch end;
 
-        public AdditionWorker(int i, int j, int[][] first, int[][] second, int[][] result, CountDownLatch s,
-                CountDownLatch e) {
+        public AdditionWorker(int i, int j, int[][] first, int[][] second, int[][] result, CountDownLatch s, CountDownLatch e) {
             rowNum = i;
             colNum = j;
             A = first;
@@ -180,16 +157,7 @@ public class MatMathImplThreads implements MatMath {
             try {
                 start.await(); // wait for the signal to start
                 try {
-                    C[rowNum][colNum] = A[rowNum][colNum] + B[rowNum][colNum]; // do
-                                                                               // the
-                                                                               // addition
-                                                                               // and
-                                                                               // put
-                                                                               // the
-                                                                               // result
-                                                                               // in
-                                                                               // result
-                                                                               // matrix
+                    C[rowNum][colNum] = A[rowNum][colNum] + B[rowNum][colNum];
                 } finally {
                     end.countDown(); // decrement the latch to signal that this
                                      // thread is done
