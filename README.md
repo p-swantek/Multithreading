@@ -16,3 +16,7 @@ Some multithreading work using Java
 ## Optimistic
 - Application that creates and uses a threadsafe list that doesn't use any blocking to maintain thread safety
 - The list implementation uses an optimistic strategy to maintain thread safety, does not need to use any blocking
+
+## SafeStack
+- Application that creates and uses a thread safe stack
+- Safe stack is an aggregate, uses a non thread safe data structure to perform operations, but the safe stack uses synchronization to ensure thread safety
