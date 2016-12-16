@@ -35,6 +35,7 @@ class SafeStackImpl<E> implements Stack<E> {
      * 
      * @param element the item that is pushed onto the stack
      */
+    @Override
     public synchronized void push(E element) {
         unsafeStack.push(element);
         version++;
@@ -45,6 +46,7 @@ class SafeStackImpl<E> implements Stack<E> {
      * 
      * @return the object that was popped off of the top of the stack
      */
+    @Override
     public synchronized E pop() {
         E res = unsafeStack.pop();
         version++;
@@ -56,6 +58,7 @@ class SafeStackImpl<E> implements Stack<E> {
      * 
      * @return the number of elements currently contained in the stack
      */
+    @Override
     public synchronized int size() {
         return unsafeStack.size();
     }
@@ -65,6 +68,7 @@ class SafeStackImpl<E> implements Stack<E> {
      * 
      * @return an Iterator over the elements of this stack
      */
+    @Override
     public synchronized Iterator<E> iterator() {
 
         return new SafeStackIterator<>(version, unsafeStack, this);
