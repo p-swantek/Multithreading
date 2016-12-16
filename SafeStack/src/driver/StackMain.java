@@ -60,7 +60,7 @@ public class StackMain {
         } catch (ConcurrentModificationException e) {
             print("Exception was successfully thrown when stack was modified during iteration");
         }
-        assert safeStack.size() == 4;
+        assert safeStack.size() == 5;
 
     }
 
